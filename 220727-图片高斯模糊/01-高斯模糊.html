@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 500px;
+            height: 800px;
+            border: 2px solid #000;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script src="./gaussBlur.js"></script>
+    <script>
+        let img = new Image(); // 创建一个image对象
+        img.src = "./images/s1202.jpg"; // 设置图片的地址
+        img.onload = function () {
+
+            let box = document.getElementById("box");
+            // 第一个参数：image对象
+            // 第二个参数：需要设置背景的盒子
+            // 第三个参数： 模糊的程度，一个数字， 数值越小越模糊，
+            let gauss = new Gauss(img, box, 100);
+            gauss.blurImg();
+        }
+    </script>
+</body>
+
+</html>
